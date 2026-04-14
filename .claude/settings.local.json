@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker compose:*)",
+      "Bash(curl -s -b /tmp/dc_cookies.txt -c /tmp/dc_cookies2.txt -X POST http://localhost:8000/auth/refresh)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' -H 'Authorization: Bearer badtoken' http://localhost:8000/auth/me)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/students)",
+      "Bash(curl -s -c /tmp/dc_login_cookies.txt -X POST http://localhost:8000/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"testinstructor@gmail.com\",\"password\":\"testpass123\"}')",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' -X POST http://localhost:8000/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"testinstructor@gmail.com\",\"password\":\"wrongpass\"}')"
+    ]
+  }
+}
